@@ -1,0 +1,14 @@
+.page {
+  margin: 10px auto auto;
+  width: 90%;
+
+  .section {
+    margin-top: 10px;
+  }
+
+  .config-themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

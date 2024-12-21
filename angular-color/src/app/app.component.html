@@ -1,0 +1,36 @@
+<div class="page">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>
+        Settings
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-slide-toggle #toggle (change)="darkMode($event)" checked> {{ toggle.checked ? "light" : "dark" }}
+        </mat-slide-toggle>
+      </div>
+      <form [formGroup]="formTheme" class="config-themes section">
+        @for (controlName of controlNames; track controlName) {
+          <mat-form-field>
+            <mat-label>{{ controlName }}</mat-label>
+            <input matInput [ngxMatColorPicker]="picker" [formControlName]="controlName">
+            <ngx-mat-color-toggle matSuffix [for]="picker"/>
+            <ngx-mat-color-picker #picker/>
+          </mat-form-field>
+        }
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card [class.dark]="!toggle.checked" appearance="outlined" class="section " id="custom">
+    <mat-card-content>
+      <button mat-flat-button>
+        flat button
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<pre>{{ formTheme.getRawValue() | json }}</pre>

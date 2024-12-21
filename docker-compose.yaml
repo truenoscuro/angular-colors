@@ -1,0 +1,12 @@
+
+services:
+  angular:
+    build: 
+      context: .
+      dockerfile: angular.Dockerfile
+    network_mode: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./angular-color:/angular-color
+  
